@@ -44,16 +44,16 @@
 ## 开发
 
 ```bash
-yarn install
-yarn build    # 清空 lib/，把 src/**/*.ts 编译成 lib/**/*.js
-yarn test     # 先 build，再跑 node --test
-yarn check    # 只做类型检查
+npm install
+npm run build   # 清空 lib/，把 src/**/*.ts 编译成 lib/**/*.js
+npm test        # 先 build，再跑 node --test
+npm run check   # 只做类型检查
 ```
 
 - `src/` 只放 TypeScript；`lib/` 是编译产物，不手改
 - 根目录 `index.mjs` 只负责加载 `lib/index.js`
 - `panel.js` 是手写的面板组件，留在模块根目录
-- `module.json` 不设 `build.out`，所以 **`lib/` 要随仓库提交**（或在发布前先 `yarn build`）
+- `module.json` 的 `build.out` 是 `lib`：发布包由 CI 跑 `npm ci && npm run build` 生成，`lib/` 不进仓库；安装后模块根目录的 `index.mjs` 就是入口
 
 ```
 ├── index.mjs            # 入口，加载 lib/index.js

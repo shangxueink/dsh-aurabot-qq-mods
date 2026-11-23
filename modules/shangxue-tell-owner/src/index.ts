@@ -303,7 +303,7 @@ function signLine(t: Ticket): string {
 export default {
   id: 'shangxue-tell-owner',
   name: '转告主人反馈',
-  version: '1.0.0',
+  version: '1.0.1',
   api: 1,
   description: '群里/私聊有人托话，记成工单送达主人；主人处理完，机器人自己找对工单回群引用原消息告诉本人',
   panel: 'panel.js',
